@@ -1,0 +1,11 @@
+print('Informe a primeira nota:')
+nota01 = float(input())
+print('Informe a segunda nota:')
+nota02 = float(input())
+print('Informe a terceira nota:')
+nota03 = float(input())
+print('Informe a quarta nota:')
+nota04 = float(input())
+print('As notas informadas foram: {}, {}, {}, {}' .format(nota01, nota02, nota03, nota04))
+media = (nota01 + nota02 + nota03 + nota04)/4
+print('A media do aluno foi: ' + format((media), '.2f'))
