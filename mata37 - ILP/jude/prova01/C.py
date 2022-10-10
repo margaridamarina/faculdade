@@ -1,4 +1,4 @@
-candy_amount=int(input())
+qtd_doces=int(input())
 
 from collections import OrderedDict
 
@@ -7,10 +7,10 @@ pessoas["Chapeuzinho Vermelho"] = 0
 pessoas["Vovozinha"] = 0
 pessoas["Lobo Mau"] = 0
 
-while candy_amount > 0:
+while qtd_doces > 0:
     for (nome, doces) in pessoas.items():
-        if candy_amount > 0:
-            candy_amount = candy_amount - 1
+        if qtd_doces > 0:
+            qtd_doces = qtd_doces - 1
             pessoas[nome] = pessoas[nome] + 1
 
 for (x, y) in pessoas.items():
