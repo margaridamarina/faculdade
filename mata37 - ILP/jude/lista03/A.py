@@ -41,4 +41,4 @@ qtd_total_bolinhas = Q
 
 for i in range(1, N+1):
     qtd_total_bolinhas = qtd_total_bolinhas*2
-print(qtd_total_bolinhas)
+print(qtd_total_bolinhas-Q)
