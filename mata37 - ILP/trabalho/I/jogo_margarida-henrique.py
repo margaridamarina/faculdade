@@ -23,7 +23,6 @@ while len(lista_palavras) < qtd_palavras:
         lista_palavras.append(x)
 print(lista_palavras)
 palavra_secreta = random.choice(lista_palavras)
-print(palavra_secreta)       
   
 def jogo():
     print('Adivinhe a palavra!')
@@ -58,7 +57,7 @@ def jogo():
             elif (Counter(letra_escolhida) == Counter(palavra_secreta)): 
                 print("A palavra era: ", end=' ')
                 print(palavra_secreta)
-                flag = 1
+                status = 1
                 print('Você ganhou!')
                 break 
             else:
