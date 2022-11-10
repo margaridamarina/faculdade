@@ -1,8 +1,7 @@
-matricula,nome,resposta1,resposta2,resposta3,resposta4,resposta5,resposta6,resposta7,resposta8,resposta9,resposta10
-1,Ana,a,b,a,e,a,a,a,b,c,b
-2,Aparecida,c,e,c,e,b,a,a,b,c,b
-3,Cecília,d,a,d,e,c,a,a,b,c,a 
-4,Margarida,a,e,d,e,d,a,a,b,c,b
-5,Rose,a,d,d,e,e,a,a,b,c,e
-6,Renata,c,c,d,e,a,a,a,b,c,d
-7,Alice,c,a,d,e,a,a,a,d,c,a
+matricula; 1; nome do aluno; Maria Ester; questao1; a; questao2; b; questao3; a; questao4; e; questao5; a; questao6; a; questao7; a; questao8; b; questao9; c; questao10; b
+matricula; 2; nome do aluno; Maria Joaquina; questao1; c; questao2; e; questao3; c; questao4; e; questao5; b; questao6; a; questao7; a; questao8; b; questao9; c; questao10; b
+matricula; 3; nome do aluno; Maria Aparecida; questao1; d; questao2; a; questao3; d; questao4; e; questao5; c; questao6; a; questao7; a; questao8; b; questao9; c; questao10; a
+matricula; 4; nome do aluno; Maria Joventina; questao1; a; questao2; e; questao3; d; questao4; e; questao5; d; questao6; a; questao7; a; questao8; b; questao9; c; questao10; b
+matricula; 5; nome do aluno; Maria Alice; questao1; a; questao2; d; questao3; d; questao4; e; questao5; e; questao6; a; questao7; a; questao8; b; questao9; c; questao10; e
+matricula; 6; nome do aluno; Maria Rosália; questao1; c; questao2; c; questao3; d; questao4; e; questao5; a; questao6; a; questao7; a; questao8; b; questao9; c; questao10; d
+matricula; 7; nome do aluno; Maria Clementina; questao1; c; questao2; a; questao3; d; questao4; e; questao5; a; questao6; a; questao7; a; questao8; d; questao9; c; questao10; a
