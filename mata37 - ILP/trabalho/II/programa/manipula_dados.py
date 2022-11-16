@@ -1,5 +1,4 @@
-from extrai import *
-
+import extrai_dados
 
 def separa_respostas_alunos(lista_respostas_alunos, numero_questoes):
     lista_aluno_separado = []
@@ -37,7 +36,7 @@ def coleta_lista_notas(matriz_respostas_sep):
     lista_acertos = []
     for resposta in matriz_respostas_sep:
         # print('As respostas separadas do aluno foi:', resposta)
-        lista_acertos.append(compara_respostas(resposta, lista_gabarito(coleta_matriz_gabarito())))
+        lista_acertos.append(compara_respostas(resposta, extrai_dados.lista_gabarito(extrai_dados.coleta_matriz_gabarito())))
     # print('A lista de acertos foi:', lista_acertos)
     return lista_acertos
 
@@ -58,4 +57,3 @@ def coleta_nome_matricula_nota(lista_nom, lista_mat, lista_not):
         infos_alunos.append(items)
     # print('O conjunto de tuplas com coletações de cada aluno é: ', infos_alunos)
     return infos_alunos
-
