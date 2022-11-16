@@ -68,8 +68,8 @@ if __name__ == "__main__":
     #MANIPULAÇÃO DE DADOS
     separados = dados_manipulacao.separa_respostas_alunos(respostas, 10)
     list_notas = dados_manipulacao.coleta_lista_notas(separados)    
-    list_matriculas = dados_manipulacao.lista_matriculas(dados_extracao.coleta_matriz_respostas())
-    list_nomes = dados_manipulacao.lista_nomes(dados_extracao.coleta_matriz_respostas())
+    list_matriculas = dados_manipulacao.lista_matriculas(matriz_resposta)
+    list_nomes = dados_manipulacao.lista_nomes(matriz_resposta)
     nome_matricula_nota = dados_manipulacao.coleta_nome_matricula_nota(list_nomes, list_matriculas, list_notas)
 
     #RESPOSTAS
