@@ -1,4 +1,4 @@
-import extrai_dados
+import dados_extracao
 
 def separa_respostas_alunos(lista_respostas_alunos, numero_questoes):
     lista_aluno_separado = []
@@ -36,7 +36,7 @@ def coleta_lista_notas(matriz_respostas_sep):
     lista_acertos = []
     for resposta in matriz_respostas_sep:
         # print('As respostas separadas do aluno foi:', resposta)
-        lista_acertos.append(compara_respostas(resposta, extrai_dados.lista_gabarito(extrai_dados.coleta_matriz_gabarito())))
+        lista_acertos.append(compara_respostas(resposta, dados_extracao.lista_gabarito(dados_extracao.coleta_matriz_gabarito())))
     # print('A lista de acertos foi:', lista_acertos)
     return lista_acertos
 

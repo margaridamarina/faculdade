@@ -1,4 +1,4 @@
-import manipula_dados, extrai_dados
+import dados_manipulacao, dados_extracao
 
 def coleta_nome_ordem_alfabetica_matricula_nota(info_alunos):
     lista_ordenada_nomes = sorted(info_alunos, key=lambda info_alunos: info_alunos[0], reverse=False) 
@@ -62,15 +62,15 @@ def coleta_media_turma(lista_notas_checar):
 #RODA PROGRAMA
 if __name__ == "__main__":
     #EXTRAÇÃO DE DADOS
-    matriz_resposta = extrai_dados.coleta_matriz_respostas()
-    respostas = extrai_dados.lista_respostas(matriz_resposta)
+    matriz_resposta = dados_extracao.coleta_matriz_respostas()
+    respostas = dados_extracao.lista_respostas(matriz_resposta)
     
     #MANIPULAÇÃO DE DADOS
-    separados = manipula_dados.separa_respostas_alunos(respostas, 10)
-    list_notas = manipula_dados.coleta_lista_notas(separados)    
-    list_matriculas = manipula_dados.lista_matriculas(extrai_dados.coleta_matriz_respostas())
-    list_nomes = manipula_dados.lista_nomes(extrai_dados.coleta_matriz_respostas())
-    nome_matricula_nota = manipula_dados.coleta_nome_matricula_nota(list_nomes, list_matriculas, list_notas)
+    separados = dados_manipulacao.separa_respostas_alunos(respostas, 10)
+    list_notas = dados_manipulacao.coleta_lista_notas(separados)    
+    list_matriculas = dados_manipulacao.lista_matriculas(dados_extracao.coleta_matriz_respostas())
+    list_nomes = dados_manipulacao.lista_nomes(dados_extracao.coleta_matriz_respostas())
+    nome_matricula_nota = dados_manipulacao.coleta_nome_matricula_nota(list_nomes, list_matriculas, list_notas)
 
     #RESPOSTAS
     lista_ordenada_por_nome = coleta_nome_ordem_alfabetica_matricula_nota(nome_matricula_nota)

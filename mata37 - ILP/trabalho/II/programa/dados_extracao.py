@@ -2,7 +2,7 @@ import csv
 
 def coleta_matriz_gabarito():
     matriz_gab = []
-    with open("/home/margo/margarida/faculdade/mata37 - ILP/trabalho/II/planilhas/gabarito.csv") as f:
+    with open("gabarito.csv") as f:
         reader = csv.reader(f)
         for row in reader:
             gabarito_junto = ''.join(row)
@@ -21,7 +21,7 @@ def lista_gabarito(matriz_gab):
 
 def coleta_matriz_respostas():
     matriz_resp = []
-    with open("/home/margo/margarida/faculdade/mata37 - ILP/trabalho/II/planilhas/respostas.csv") as f:
+    with open("respostas.csv") as f:
         reader = csv.reader(f)
         for row in reader:
             respostas_junto = ''.join(row)
