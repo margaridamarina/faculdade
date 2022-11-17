@@ -7,7 +7,7 @@ def coleta_matriz_gabarito():
         for row in reader:
             gabarito_junto = ''.join(row)
             matriz_gab.append(gabarito_junto.split(';'))
-        # print('A matriz do gabarito é: ', matriz_gab)
+        # print('~~~~~~A matriz do gabarito é: ', matriz_gab)
         return matriz_gab
 
 
@@ -15,7 +15,7 @@ def lista_gabarito(matriz_gab):
     lista_gabarito = []
     for questao in matriz_gab:
         lista_gabarito.append(questao[1])
-    # print('As respostas corretas são: ', lista_gabarito)
+    # print('~~~~~~As respostas corretas são: ', lista_gabarito)
     return lista_gabarito
 
 
@@ -26,7 +26,7 @@ def coleta_matriz_respostas():
         for row in reader:
             respostas_junto = ''.join(row)
             matriz_resp.append(respostas_junto.split('; '))
-        # print('A matriz das respostas dos alunos é:', matriz_resp)
+        # print('~~~~~~A matriz das respostas dos alunos é:', matriz_resp)
         return matriz_resp
 
 
@@ -36,5 +36,15 @@ def lista_respostas(matriz_resp):
         for col in range(5,25,2):
             respostas = matriz_resp[lin][col]
             lista_respostas_alunos.append(respostas)
-    # print('As respostas foram: ', lista_respostas_alunos)
+    # print('~~~~~~As respostas foram: ', lista_respostas_alunos)
     return lista_respostas_alunos
+
+
+# #RODA PROGRAMA
+# if __name__ == "__main__":
+#     #EXTRAÇÃO DE DADOS
+#     matriz_gabarito = coleta_matriz_gabarito()
+#     gabarito = lista_gabarito(matriz_gabarito)
+#     matriz_resposta = coleta_matriz_respostas()
+#     respostas = lista_respostas(matriz_resposta)
+    
