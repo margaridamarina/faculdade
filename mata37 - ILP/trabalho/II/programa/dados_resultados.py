@@ -1,5 +1,7 @@
 import dados_manipulacao, dados_extracao
 
+num_questoes = 10
+
 def coleta_nome_ordem_alfabetica_matricula_nota(info_alunos):
     lista_ordenada_nomes = sorted(info_alunos, key=lambda info_alunos: info_alunos[0], reverse=False) 
     return lista_ordenada_nomes
@@ -59,6 +61,60 @@ def coleta_media_turma(lista_notas_checar):
     return media
 
 
+def menu():
+    while True:
+        print("""\033[33m
+        Digite a opção desejada:
+        \033[35m
+        1. A lista em ordem alfabética dos alunos com o número de matricula e a sua nota.
+        2. A lista em ordem crescente de notas com o nome do aluno, o numero da matricula e a sua nota.
+        3. A lista em ordem crescente de notas com o nome do aluno, o numero da matricula e a sua nota para os alunos aprovados (>= 7.0).
+        4. A lista em ordem decrescente de notas com o nome do aluno, o numero da matricula e a sua nota para os alunos reprovados (< 7.0).
+        5. O percentual de aprovação, sabendo-se que a nota mínima para aprovação é >=7.0.
+        6. A nota que teve a maior frequência absoluta.
+        7. O aluno com a maior nota (nome, matricula e nota).
+        8. O aluno com a menor nota (nome, matricula e nota)
+        9. A média da turma.
+        
+        0. Sair do programa.
+        """)
+        opcao = int(input('\033[33m'))
+        if opcao == 1:
+            lista_ordenada_por_nome = coleta_nome_ordem_alfabetica_matricula_nota(nome_matricula_nota)
+            print(f"\033[33mQUESTÃO 1: A lista em ordem alfabética dos alunos com o número de matricula e a sua nota é: \n" + str(lista_ordenada_por_nome))
+        elif opcao == 2:
+            lista_ordenada_por_nota = coleta_lista_ordenada_por_nota(nome_matricula_nota)
+            print( f"\033[33mQUESTÃO 2: A lista em ordem crescente de notas com o nome do aluno, o numero da matricula e a sua nota é: \n" + str(lista_ordenada_por_nota))
+        elif opcao == 3:
+            lista_nota_crescente = coleta_nota_crescente_matricula_nota_aprovados(lista_ordenada_por_nota)
+            print(f"\033[33mQUESTÃO 3: A lista em ordem crescente de notas com o nome do aluno, o numero da matricula e a sua nota para os alunos aprovados (>= 7.0). é: \n" + str(lista_nota_crescente))
+        elif opcao == 4:
+            lista_nota_decrescente = coleta_nota_decrescente_matricula_nota_aprovados(nome_matricula_nota, lista_ordenada_por_nota)
+            print(f"\033[33mQUESTÃO 4: A lista em ordem decrescente de notas com o nome do aluno, o numero da matricula e a sua nota para os alunos reprovados (< 7.0). é: \n" + str(lista_nota_decrescente))
+        elif opcao == 5:
+            percentua_aprovacao = coleta_percentual_aprovacao(list_notas)
+            print(f'\033[33mQUESTÃO 5: O percentual de aprovação, sabendo-se que a nota mínima para aprovação é >=7.0, foi {percentua_aprovacao:.2%}', )
+        elif opcao == 6:
+            frequencia_absoluta = coleta_frequencia_absoluta(list_notas)
+            print('\033[33mQUESTÃO 6: A frequência de cada nota é:', frequencia_absoluta)
+        elif opcao == 7:
+            maior_nota = coleta_aluno_maior_nota(nome_matricula_nota, list_notas)
+            print('\033[33mQUESTÃO 7: O aluno com a maior nota (nome, matricula e nota) foi: \n', maior_nota)
+        elif opcao == 8:
+            menor_nota = coleta_aluno_menor_nota(nome_matricula_nota, list_notas)
+            print('\033[33mQUESTÃO 8: O aluno com a menor nota (nome, matricula e nota) foi: \n', menor_nota)
+        elif opcao == 9:
+            media_turma = coleta_media_turma(list_notas)
+            print(f'\033[33mQUESTÃO 9: A média da turma é {media_turma:.2f}')
+        elif opcao == 0:
+            print(f'\033[33mTchau!')
+            break
+        else:
+            print(f'\033[33mEssa opção não existe!')
+            break
+
+
+
 #RODA PROGRAMA
 if __name__ == "__main__":
     #EXTRAÇÃO DE DADOS
@@ -66,36 +122,14 @@ if __name__ == "__main__":
     respostas = dados_extracao.lista_respostas(matriz_resposta)
     
     #MANIPULAÇÃO DE DADOS
-    separados = dados_manipulacao.separa_respostas_alunos(respostas, 10)
+    separados = dados_manipulacao.separa_respostas_alunos(respostas, num_questoes)
     list_notas = dados_manipulacao.coleta_lista_notas(separados)    
     list_matriculas = dados_manipulacao.lista_matriculas(matriz_resposta)
     list_nomes = dados_manipulacao.lista_nomes(matriz_resposta)
     nome_matricula_nota = dados_manipulacao.coleta_nome_matricula_nota(list_nomes, list_matriculas, list_notas)
 
-    #RESPOSTAS
-    lista_ordenada_por_nome = coleta_nome_ordem_alfabetica_matricula_nota(nome_matricula_nota)
-    print(f"QUESTÃO 1: A lista em ordem alfabética dos alunos com o número de matricula e a sua nota é: " + str(lista_ordenada_por_nome))
+    #RESULTADOS
+    menu()
     
-    lista_ordenada_por_nota = coleta_lista_ordenada_por_nota(nome_matricula_nota)
-    print( f"QUESTÃO 2: A lista em ordem crescente de notas com o nome do aluno, o numero da matricula e a sua nota.: " + str(lista_ordenada_por_nota))
     
-    lista_nota_crescente = coleta_nota_crescente_matricula_nota_aprovados(lista_ordenada_por_nota)
-    print(f"QUESTÃO 3: A lista em ordem crescente de notas com o nome do aluno, o numero da matricula e a sua nota para os alunos aprovados (>= 7.0). é:" + str(lista_nota_crescente))
     
-    lista_nota_decrescente = coleta_nota_decrescente_matricula_nota_aprovados(nome_matricula_nota, lista_ordenada_por_nota)
-    print(f"QUESTÃO 4: A lista em ordem decrescente de notas com o nome do aluno, o numero da matricula e a sua nota para os alunos reprovados (< 7.0). é:" + str(lista_nota_decrescente))
-
-    percentua_aprovacao = coleta_percentual_aprovacao(list_notas)
-    print(f'QUESTÃO 5: O percentual de aprovação, sabendo-se que a nota mínima para aprovação é >=7.0, foi {percentua_aprovacao:.2%}', )
-    
-    frequencia_absoluta = coleta_frequencia_absoluta(list_notas)
-    print('QUESTÃO 6: A frequência de cada nota é:', frequencia_absoluta)
-    
-    maior_nota = coleta_aluno_maior_nota(nome_matricula_nota, list_notas)
-    print('QUESTÃO 7: O aluno com a maior nota (nome, matricula e nota).', maior_nota)
-    
-    menor_nota = coleta_aluno_menor_nota(nome_matricula_nota, list_notas)
-    print('QUESTÃO 8: O aluno com a menor nota (nome, matricula e nota).', menor_nota)
-    
-    media_turma = coleta_media_turma(list_notas)
-    print(f'QUESTÃO 9: A média da turma é {media_turma:.2f}')
