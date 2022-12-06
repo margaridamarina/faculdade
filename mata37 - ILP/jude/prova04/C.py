@@ -7,18 +7,17 @@ lista_tentativas = []
 for _ in range(qtd_competidores):
     tentativas = [float(x) for x in input().split()]
     lista_tentativas.append(tentativas)
-print(lista_tentativas)
+# print('LISTA TENTATIVAS', lista_tentativas)
 
 listas_ordenadas = []
 for indice in range(len(lista_tentativas)):
-    n = len(lista_tentativas[indice])
-    for inicio in range(1, n):
+    for inicio in range(1, len(lista_tentativas[indice])):
         i = inicio
         while i >= 1 and lista_tentativas[indice][i] < lista_tentativas[indice][i-1]:
             lista_tentativas[indice][i], lista_tentativas[indice][i-1] = lista_tentativas[indice][i-1], lista_tentativas[indice][i]
             i -= 1
     listas_ordenadas.append(lista_tentativas[indice])
-print(listas_ordenadas)
+# print('LISTA ORDENADA', listas_ordenadas)
 
 lista_maiores = []
 for item in listas_ordenadas:
@@ -28,6 +27,7 @@ for item in listas_ordenadas:
 lista_menores = []
 for item in listas_ordenadas:
     lista_menores.append(item[0])
+lista_menores.sort()
 # print(lista_menores)
 
 lista_diferencas = [elemA - elemB for elemA, elemB in zip(lista_maiores, lista_menores)]
@@ -54,5 +54,4 @@ for lista in listas_ordenadas:
         for k, v in dicionario.items():
             if lista in v:
                 competidor = k
-                
 print("Competidor {} ganhou! {:.2f}s".format(competidor, lista_menores[0]))
