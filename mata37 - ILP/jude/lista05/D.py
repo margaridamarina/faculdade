@@ -1,6 +1,6 @@
 total_figurinhas = int(input()) # ignore
 colecao_figurinhas = [int(valor) for valor in input().split()][:total_figurinhas]
-qtd_figurinhas = [int(valor) for valor in input().split()]
+qtd_figurinhas = [int(valor) for valor in input().split()][:total_figurinhas]
 consultas = int(input()) #ignore
 
 lista_de_troca_de_figurinha = [int(valor) for valor in input().split()][:consultas]
