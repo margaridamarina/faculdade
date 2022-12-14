@@ -1,32 +1,30 @@
-total_figurinhas = int(input())
-colecao_figurinhas = list(map(int, input().split()))
-qtd_figurinhas = list(map(int, input().split()))
-consultas = input()
-figurinhas = list(map(int, input().split()))
+total_figurinhas = int(input()) # ignore
+colecao_figurinhas = [int(valor) for valor in input().split()][:total_figurinhas]
+qtd_figurinhas = [int(valor) for valor in input().split()]
+consultas = int(input()) #ignore
 
-for figurinha in figurinhas:
-    n = len(colecao_figurinhas)
+lista_de_troca_de_figurinha = [int(valor) for valor in input().split()][:consultas]
+
+tamanho_colecao_figurinha = len(colecao_figurinhas)
+for figurinha in lista_de_troca_de_figurinha:
     esq = 0
-    dir = n - 1
-    posicao = 0
+    dir = tamanho_colecao_figurinha - 1
+    posicao = -1
+
     while esq <= dir:
         meio = (esq + dir) // 2
-        if colecao_figurinhas[meio] == figurinha:
+
+        if figurinha == colecao_figurinhas[meio] :
+            posicao = meio
             break
         elif figurinha < colecao_figurinhas[meio]:
             dir = meio - 1
         else:
             esq = meio + 1
-    if colecao_figurinhas[meio] == figurinha:
-        posicao = meio
-    else:
-        posicao = -1
-    # print(posicao)
 
     if posicao == -1:
         print('Quero')
+    elif qtd_figurinhas[posicao] > 1:
+        print('Trocar')
     else:
-        if qtd_figurinhas[posicao] > 1:
-            print('Trocar')
-        if qtd_figurinhas[posicao] == 1:
-            print('Apenas uma')
+        print('Apenas uma')
